@@ -36,7 +36,7 @@ export default class App extends React.Component {
                 screenComponent = ( <TimeScreen start={this.startTimer} ></TimeScreen> );
                 break;
             case 'pomodoro':
-                screenComponent = ( <PomodoroScreen time={this.state.time}></PomodoroScreen> );
+                screenComponent = ( <PomodoroScreen time={this.state.time} nav={this.navigate}></PomodoroScreen> );
                 break;
         }
         return (
