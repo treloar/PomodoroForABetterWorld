@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import CharityBox from './CharityBox';
 
-
 export class CharityScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -20,21 +19,26 @@ export class CharityScreen extends React.Component {
   render() {
     return (
       <View>
-        <Text>Charity screen!</Text>
-        <View style={this.styles.charityContainer}>
+        <Text>Hello world</Text>
+        <View style={this.styles.charitycontainer}>
+          <CharityBox name="United Way Worldwide"/>
+          <CharityBox name="Task Force for Global Health"/>
+          <CharityBox name="Feeding America"/>
           <CharityBox name="Salvation Army"/>
-          <CharityBox name="Habitat for Humanity"/>
-          <CharityBox name="YMCA"/>
+          <CharityBox name="St. Jude Children's Research Hospital"/>
+          <CharityBox name="Habitat for Humanity International"/>
         </View>
-        <Button onPress={this.goToTimeScreen} title="Click me to go to time!"></Button>
+        <Button onPress={this.goToTimeScreen} title="Select Charity"></Button>
       </View>
     );
   }
 
   styles = StyleSheet.create({
-    charityContainer: {
-      
-    },
+    charitycontainer: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+    }
   });
 }
 
