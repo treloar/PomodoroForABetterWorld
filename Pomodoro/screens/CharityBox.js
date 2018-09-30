@@ -1,10 +1,11 @@
 import React from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
   Dimensions,
   Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 
 
@@ -12,15 +13,21 @@ export class CharityBox extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     return (
-      <View style={this.styles.charityBox}>
-        <Text onPress={() => this.props.onPress(this.props.id)} style={this.styles.charityName}>{this.props.name}</Text>
-        <View>
-          <Image source={this.props.image} style={this.styles.charityImage} resizeMode="contain" />
+      <TouchableOpacity onPress={() => this.props.onPress(this.props.id)}>
+        <View onPress={this.trigger} style={this.styles.charityBox}>
+          <Text style={this.styles.charityName}>{this.props.name}</Text>
+          <View>
+            <Image 
+              source={this.props.image} 
+              style={this.styles.charityImage} 
+              resizeMode="contain" 
+            />
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 

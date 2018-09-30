@@ -40,7 +40,7 @@ export class CharityScreen extends React.Component {
     ];
 
     return (
-      <View style={this.styles.charityContainer}>
+      <View style={this.styles.charityBoxesContainer}>
         {
           charityNames.map((name, i) => (
             <CharityBox 
@@ -58,15 +58,17 @@ export class CharityScreen extends React.Component {
 s
   render() {
     return (
-      <View>
-        <Text>Hello world</Text>
+      <View style={this.styles.charityScreenContainer}>
         { this.initCharityBoxes() }
       </View>
     );
   }
 
   styles = StyleSheet.create({
-    charityContainer: {
+    charityScreenContainer: {
+      marginTop: 30,
+    },
+    charityBoxesContainer: {
       flexDirection: 'row',
       flexWrap: 'wrap',
       justifyContent: 'space-around',
