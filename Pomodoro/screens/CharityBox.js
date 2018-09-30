@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   Dimensions,
+  TouchableOpacity,
 } from 'react-native';
 
 
@@ -11,17 +12,17 @@ export class CharityBox extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
     return (
-        <View>
-            <Text style={this.styles.charitybox}>{this.props.name}</Text>
-        </View>
+      <View>
+        <Text onPress={() => this.props.onPress(this.props.id)} style={this.styles.charityBox}>{this.props.name}</Text>
+      </View>
     );
   }
 
   styles = StyleSheet.create({
-    charitybox: {
+    charityBox: {
       color: 'white',
       backgroundColor: 'lightblue',
       height: 150,
