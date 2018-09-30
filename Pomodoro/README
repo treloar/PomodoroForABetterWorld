@@ -1,0 +1,8 @@
+## To install:
+
+```
+git clone https://github.com/treloar/hackny.git
+cd hackny
+npm install
+npm start
+```
