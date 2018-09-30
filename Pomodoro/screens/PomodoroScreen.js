@@ -40,12 +40,29 @@ const styles = StyleSheet.create({
     },
 });
 
+const tomatoVids = {
+    '10': require('../vid/tomato10tan.mp4'),
+    '25': require('../vid/tomato25tan.mp4'),
+    '60': require('../vid/tomato60tan.mp4'),
+};
+
 export class PomodoroScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             time: props.time,
         };
+        switch(props.time){
+            case 10:
+                this.tomatoVid = tomatoVids['10'];
+                break;
+            case 25:
+                this.tomatoVid = tomatoVids['25'];
+                break;
+            case 60:
+                this.tomatoVid = tomatoVids['60'];
+                break;
+        }
     }
 
     tick = () => {
@@ -54,7 +71,7 @@ export class PomodoroScreen extends React.Component {
                 time: state.time - 1,
             }));
         } else {
-            // Do nothing
+            clearInterval(this.timerId);
         }
     };
 
@@ -86,11 +103,11 @@ export class PomodoroScreen extends React.Component {
         //<Image style={styles.tomatoImg} source={require('../img/tomato.png')}/>
         //<Text style={styles.countdownText}>{ this.state.time }!</Text>
         return (
-                <View style={{height: Dimensions.get('window').height, flexDirection: 'row', justifyContent: 'space-evenly', backgroundColor: '#FFCCFF'}}>
+                <View style={{height: Dimensions.get('window').height, flexDirection: 'row', justifyContent: 'space-evenly', backgroundColor: '#FFDCBA'}}>
                     <View style={styles.centralFlexContainer}>
                         <View style={styles.tomatoContainer}>
 							<Video
-							source={require('../vid/tomato10pink.mp4')}
+							source={this.tomatoVid}
 							style={styles.tomatoVid}
                             shouldPlay
 							resizeMode={"cover"}
