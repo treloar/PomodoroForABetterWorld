@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { CharityScreen } from './screens/CharityScreen.js';
 import { TimeScreen } from './screens/TimeScreen.js';
+import { PomodoroScreen } from './screens/PomodoroScreen.js';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -15,6 +16,13 @@ export default class App extends React.Component {
         this.setState({
             screen: route,
         });
+    };
+
+    startTimer = _time => {
+        this.setState({
+            screen: 'pomodoro',
+            time: _time,
+        });
     }
 
     render = () => {
@@ -25,7 +33,10 @@ export default class App extends React.Component {
                 screenComponent = ( <CharityScreen nav={this.navigate} ></CharityScreen> );
                 break;
             case 'time':
-                screenComponent = ( <TimeScreen nav={this.navigate} ></TimeScreen> );
+                screenComponent = ( <TimeScreen start={this.startTimer} ></TimeScreen> );
+                break;
+            case 'pomodoro':
+                screenComponent = ( <PomodoroScreen time={this.state.time}></PomodoroScreen> );
                 break;
         }
         return (

@@ -12,7 +12,7 @@ export class TimeScreen extends React.Component {
   }
 
   press = () => {
-    this.props.nav('charity');   
+    this.props.start(15);   
   };
 
   render() {
