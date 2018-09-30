@@ -40,15 +40,15 @@ export class CharityBox extends React.Component {
       borderRadius: 15,
       alignItems: 'center',
       backgroundColor: 'lightblue',
-      width: Dimensions.get('window').width / 2.5,
+      width: Dimensions.get('window').width / 2.25,
     },
     charityName: {
       color: 'white',
       textAlign: 'center',
     },
     charityImage: {
-      alignSelf: 'stretch',
       flex: 1,
+      alignSelf: 'stretch',
       marginTop: 10,
       marginBottom: 40,
     },
