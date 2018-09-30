@@ -21,18 +21,32 @@ export class CharityScreen extends React.Component {
     this.props.nav('time');
   }
 
+  initCharityBoxes() {
+    const charityNames = [
+      "United Way Worldwide",
+      "Task Force for Global Health",
+      "Feeding America",
+      "Salvation Army",
+      "St. Jude Children's Research Hospital",
+      "Habitat for Humanity International"
+    ];
+
+    return (
+      <View style={this.styles.charityContainer}>
+        {
+          charityNames.map((name, i) => (
+            <CharityBox key={i} id={i} onPress={this.selectCharity} name={name} />
+          ))
+        }
+      </View>
+    );
+  }
+
   render() {
     return (
       <View>
         <Text>Hello world</Text>
-        <View style={this.styles.charityContainer}>
-          <CharityBox id={1} onPress={this.selectCharity} name="United Way Worldwide"/>
-          <CharityBox id={2} onPress={this.selectCharity} name="Task Force for Global Health"/>
-          <CharityBox id={3} onPress={this.selectCharity} name="Feeding America"/>
-          <CharityBox id={4} onPress={this.selectCharity} name="Salvation Army"/>
-          <CharityBox id={5} onPress={this.selectCharity} name="St. Jude Children's Research Hospital"/>
-          <CharityBox id={6} onPress={this.selectCharity} name="Habitat for Humanity International"/>
-        </View>
+        { this.initCharityBoxes() }
       </View>
     );
   }
