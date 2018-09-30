@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
 } from 'react-native';
 import CharityBox from './CharityBox';
 
@@ -31,17 +30,32 @@ export class CharityScreen extends React.Component {
       "Habitat for Humanity International"
     ];
 
+    const charityLogos = [
+      require("../img/united-way-worldwide.png"),
+      require("../img/task-force-for-global-health.png"),
+      require("../img/feeding-america.png"),
+      require("../img/salvation-army.png"),
+      require("../img/st-jude-childrens-research-hospital.png"),
+      require("../img/habitat-for-humanity-international.png")
+    ];
+
     return (
       <View style={this.styles.charityContainer}>
         {
           charityNames.map((name, i) => (
-            <CharityBox key={i} id={i} onPress={this.selectCharity} name={name} />
+            <CharityBox 
+              key={i} 
+              id={i} 
+              onPress={this.selectCharity} 
+              name={name} 
+              image={charityLogos[i]}
+            />
           ))
         }
       </View>
     );
   }
-
+s
   render() {
     return (
       <View>
