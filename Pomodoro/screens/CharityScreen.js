@@ -3,6 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
+  TouchableHighlight,
 } from 'react-native';
 import CharityBox from './CharityBox';
 //import Stripe from 'react-native-stripe-api';
@@ -61,7 +62,7 @@ export class CharityScreen extends React.Component {
   }
 
   makePayment(amount) {
-    //alert("You donated $" + amount);
+    alert("You will donate " + amount);
     // const apiKey = 'sk_test_txfxAzRD0FPONtT6wSv084Ck';
     // const client = new Stripe(apiKey);
 
@@ -85,9 +86,15 @@ export class CharityScreen extends React.Component {
     return (
       <View style={this.styles.charityScreenContainer}>
         <View style={this.styles.buttonsContainer}>
-          <Text onPress={() => this.makePayment(0.5)} style={this.styles.button}>$0.50</Text>
-          <Text onPress={() => this.makePayment(1)} style={this.styles.button}>$1.00</Text>
-          <Text onPress={() => this.makePayment(2)} style={this.styles.button}>$2.00</Text>
+        <TouchableHighlight>
+          <Text onPress={() => this.makePayment('$0.50')} style={this.styles.button}>$0.50</Text>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <Text onPress={() => this.makePayment('$1.00')} style={this.styles.button}>$1.00</Text>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <Text onPress={() => this.makePayment('$2.00')} style={this.styles.button}>$2.00</Text>
+        </TouchableHighlight>
         </View>
         { this.initCharityBoxes() }
       </View>
@@ -113,8 +120,8 @@ export class CharityScreen extends React.Component {
       justifyContent: 'center',
     },
     button: {
-      backgroundColor: '#FC152B',
-      borderRadius: 50,
+      //backgroundColor: '#FC152B',
+      borderRadius: 10,
       padding: 20,
       margin: 20,
       borderWidth: 3,
