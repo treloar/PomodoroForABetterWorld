@@ -3,6 +3,7 @@ import {
     View,
     Button,
     Text,
+    Image,
 } from 'react-native';
 
 
@@ -47,6 +48,7 @@ export class PomodoroScreen extends React.Component {
         return (
                 <View>
                 <Text> The amount of time left is { this.state.time }! </Text>
+                <Image source={require('../img/tomato.png')}/>
                 {isFinished &&
                     buttons
                 }
