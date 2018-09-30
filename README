@@ -2,7 +2,7 @@
 
 ```
 git clone https://github.com/treloar/hackny.git
-cd hackny
+cd hackny/Pomodoro
 npm install
 npm start
 ```
