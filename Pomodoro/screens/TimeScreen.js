@@ -11,7 +11,7 @@ export class TimeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        time: 25,
+        time: 10,
     }
   }
 
